@@ -39,6 +39,10 @@ export default {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
         },
+        success: {
+          DEFAULT: "hsl(var(--success))",
+          foreground: "hsl(var(--success-foreground))",
+        },
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
@@ -47,16 +51,36 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        sidebar: {
-          DEFAULT: "hsl(var(--sidebar-background))",
-          foreground: "hsl(var(--sidebar-foreground))",
-          primary: "hsl(var(--sidebar-primary))",
-          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
-          accent: "hsl(var(--sidebar-accent))",
-          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
-          border: "hsl(var(--sidebar-border))",
-          ring: "hsl(var(--sidebar-ring))",
+        // Prashiskshan Brand Colors
+        prash: {
+          royal: "hsl(var(--prash-royal))",
+          "royal-light": "hsl(var(--prash-royal-light))",
+          "royal-dark": "hsl(var(--prash-royal-dark))",
+          orange: "hsl(var(--prash-orange))",
+          "orange-light": "hsl(var(--prash-orange-light))",
+          "orange-dark": "hsl(var(--prash-orange-dark))",
+          success: "hsl(var(--prash-success))",
+          "success-light": "hsl(var(--prash-success-light))",
+          neutral: "hsl(var(--prash-neutral))",
+          "neutral-dark": "hsl(var(--prash-neutral-dark))",
+          "text-primary": "hsl(var(--prash-text-primary))",
+          "text-secondary": "hsl(var(--prash-text-secondary))",
+          "text-white": "hsl(var(--prash-text-white))",
         },
+      },
+      backgroundImage: {
+        "gradient-hero": "var(--gradient-hero)",
+        "gradient-accent": "var(--gradient-accent)",
+        "gradient-success": "var(--gradient-success)",
+      },
+      boxShadow: {
+        soft: "var(--shadow-soft)",
+        medium: "var(--shadow-medium)",
+        strong: "var(--shadow-strong)",
+      },
+      transitionTimingFunction: {
+        smooth: "var(--transition-smooth)",
+        bounce: "var(--transition-bounce)",
       },
       borderRadius: {
         lg: "var(--radius)",

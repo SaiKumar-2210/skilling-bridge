@@ -2,95 +2,92 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Prashiskshan Design System - NEP-Compliant Internship Platform */
 
 @layer base {
   :root {
+    /* Core Prashiskshan Brand Colors */
+    --prash-royal: 217 91% 30%;        /* Primary Royal Blue #1E3A8A */
+    --prash-royal-light: 217 91% 40%;  
+    --prash-royal-dark: 217 91% 20%;   
+    
+    --prash-orange: 24 95% 53%;        /* Accent Vibrant Orange #F97316 */
+    --prash-orange-light: 24 95% 63%;  
+    --prash-orange-dark: 24 95% 43%;   
+    
+    --prash-success: 158 64% 52%;      /* Success Emerald #10B981 */
+    --prash-success-light: 158 64% 62%;
+    
+    --prash-neutral: 220 14% 96%;      /* Neutral Cool Gray #F3F4F6 */
+    --prash-neutral-dark: 220 14% 86%;
+    
+    /* Typography */
+    --prash-text-primary: 221 39% 11%; /* #111827 */
+    --prash-text-secondary: 220 9% 46%;
+    --prash-text-white: 0 0% 100%;     /* #FFFFFF */
+    
+    /* Semantic Design System */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: var(--prash-text-primary);
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: var(--prash-text-primary);
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: var(--prash-text-primary);
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: var(--prash-royal);
+    --primary-foreground: var(--prash-text-white);
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: var(--prash-neutral);
+    --secondary-foreground: var(--prash-text-primary);
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: var(--prash-neutral);
+    --muted-foreground: var(--prash-text-secondary);
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: var(--prash-orange);
+    --accent-foreground: var(--prash-text-white);
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --success: var(--prash-success);
+    --success-foreground: var(--prash-text-white);
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: var(--prash-text-white);
 
-    --radius: 0.5rem;
+    --border: var(--prash-neutral-dark);
+    --input: var(--prash-neutral-dark);
+    --ring: var(--prash-royal);
 
-    --sidebar-background: 0 0% 98%;
+    --radius: 0.75rem;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Custom Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--prash-royal)), hsl(var(--prash-royal-light)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--prash-orange)), hsl(var(--prash-orange-light)));
+    --gradient-success: linear-gradient(135deg, hsl(var(--prash-success)), hsl(var(--prash-success-light)));
+    
+    /* Shadows */
+    --shadow-soft: 0 2px 8px -2px hsl(var(--prash-royal) / 0.1);
+    --shadow-medium: 0 4px 16px -4px hsl(var(--prash-royal) / 0.15);
+    --shadow-strong: 0 8px 32px -8px hsl(var(--prash-royal) / 0.2);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --background: var(--prash-text-primary);
+    --foreground: var(--prash-text-white);
+    --card: var(--prash-text-primary);
+    --card-foreground: var(--prash-text-white);
+    --popover: var(--prash-text-primary);
+    --popover-foreground: var(--prash-text-white);
+    --secondary: 220 14% 16%;
+    --secondary-foreground: var(--prash-text-white);
+    --muted: 220 14% 16%;
+    --muted-foreground: var(--prash-text-secondary);
+    --border: 220 14% 26%;
+    --input: 220 14% 26%;
   }
 }
 
