@@ -16,18 +16,30 @@ const AuthSelect = () => {
   const role = searchParams.get("role");
 
   const handleGoogleAuth = () => {
+    // Store role if provided
+    if (role) {
+      localStorage.setItem("prashiskshan_role", role);
+    }
     // In production, this would integrate with Supabase Auth
     console.log("Google authentication initiated");
     navigate("/verify-college");
   };
 
   const handleEmailAuth = () => {
+    // Store role if provided
+    if (role) {
+      localStorage.setItem("prashiskshan_role", role);
+    }
     // In production, this would integrate with Supabase Auth
     console.log("Email authentication initiated");
     navigate("/verify-college");
   };
 
   const handlePhoneAuth = () => {
+    // Store role if provided
+    if (role) {
+      localStorage.setItem("prashiskshan_role", role);
+    }
     // In production, this would integrate with Supabase Auth
     console.log("Phone authentication initiated");
     navigate("/verify-college");

@@ -15,7 +15,7 @@ import {
 const OnboardSlides = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  const role = searchParams.get("role") || "student";
+  const role = searchParams.get("role") || localStorage.getItem("prashiskshan_role") || "student";
   const [currentSlide, setCurrentSlide] = useState(0);
   const [permissions, setPermissions] = useState({
     notifications: false,

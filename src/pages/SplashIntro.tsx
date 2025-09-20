@@ -6,14 +6,7 @@ import { GraduationCap, BookOpen, Award } from "lucide-react";
 const SplashIntro = () => {
   const navigate = useNavigate();
 
-  useEffect(() => {
-    // Auto-redirect after 3 seconds if user doesn't interact
-    const timer = setTimeout(() => {
-      navigate("/landing");
-    }, 3000);
-
-    return () => clearTimeout(timer);
-  }, [navigate]);
+  // Removed auto-redirect to keep this as the main landing page
 
   return (
     <div className="min-h-screen bg-gradient-hero flex flex-col items-center justify-center p-6 text-center">
@@ -46,15 +39,15 @@ const SplashIntro = () => {
         {/* CTAs */}
         <div className="space-y-4">
           <Button 
-            onClick={() => navigate("/landing")}
-            className="w-full bg-accent hover:bg-accent/90 text-white font-semibold"
+            onClick={() => navigate("/auth")}
+            className="w-full bg-accent hover:bg-accent/90 text-white font-semibold btn-smooth"
           >
             Get Started
           </Button>
           <Button 
             variant="outline"
-            onClick={() => navigate("/landing")}
-            className="w-full border-white/30 text-white hover:bg-white/10"
+            onClick={() => navigate("/auth")}
+            className="w-full border-2 border-white text-white hover:bg-white hover:text-primary btn-smooth"
           >
             Watch Demo
           </Button>

@@ -76,7 +76,7 @@ const LandingTour = () => {
             <Button 
               size="lg"
               onClick={() => navigate("/auth")}
-              className="bg-primary hover:bg-primary/90"
+              className="bg-primary hover:bg-primary/90 btn-smooth"
             >
               Get Started Free
               <ArrowRight className="w-5 h-5 ml-2" />
@@ -85,6 +85,7 @@ const LandingTour = () => {
               size="lg" 
               variant="outline"
               onClick={() => navigate("/landing#demo")}
+              className="btn-smooth"
             >
               Watch Demo
             </Button>
@@ -100,7 +101,7 @@ const LandingTour = () => {
           </h2>
           <div className="grid md:grid-cols-2 gap-6">
             {features.map((feature, index) => (
-              <Card key={index} className="shadow-soft">
+              <Card key={index} className="shadow-soft card-hover">
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -136,7 +137,7 @@ const LandingTour = () => {
               </div>
               <Button 
                 size="lg" 
-                className="mt-8 bg-accent hover:bg-accent/90"
+                className="mt-8 bg-accent hover:bg-accent/90 btn-smooth"
                 onClick={() => navigate("/auth")}
               >
                 Start Your Journey
@@ -148,24 +149,24 @@ const LandingTour = () => {
                 Join thousands of students already building their careers 
                 through verified internship experiences.
               </p>
-              <div className="space-y-2">
+              <div className="space-y-3">
                 <Button 
                   variant="secondary"
-                  className="w-full"
+                  className="w-full bg-white text-accent hover:bg-white/90 transition-all duration-300 transform hover:scale-105"
                   onClick={() => navigate("/auth?role=student")}
                 >
                   Join as Student
                 </Button>
                 <Button 
                   variant="outline"
-                  className="w-full border-white text-white hover:bg-white/10"
+                  className="w-full border-2 border-white/80 text-white hover:bg-white/20 hover:border-white transition-all duration-300 transform hover:scale-105"
                   onClick={() => navigate("/auth?role=faculty")}
                 >
                   Join as Faculty
                 </Button>
                 <Button 
                   variant="outline"
-                  className="w-full border-white text-white hover:bg-white/10"
+                  className="w-full border-2 border-white/80 text-white hover:bg-white/20 hover:border-white transition-all duration-300 transform hover:scale-105"
                   onClick={() => navigate("/auth?role=industry")}
                 >
                   Join as Industry
