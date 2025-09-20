@@ -31,7 +31,9 @@ const CollegeVerify = () => {
     // Simulate verification
     setTimeout(() => {
       setIsLoading(false);
-      navigate("/onboard");
+      // Get role from localStorage or default to student
+      const role = localStorage.getItem("prashiskshan_role") || "student";
+      navigate(`/onboard?role=${role}`);
     }, 1500);
   };
 
