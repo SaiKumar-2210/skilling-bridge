@@ -1,19 +1,25 @@
+import { useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import LoginForm from "@/components/LoginForm";
 import { 
   ArrowLeft,
   Mail,
   Phone,
   Chrome,
-  AlertCircle
+  AlertCircle,
+  UserPlus,
+  LogIn
 } from "lucide-react";
 
 const AuthSelect = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const role = searchParams.get("role");
+  const [activeTab, setActiveTab] = useState("login");
 
   const handleGoogleAuth = () => {
     // Store role if provided
@@ -50,6 +56,11 @@ const AuthSelect = () => {
     navigate("/student/search");
   };
 
+  const handleLoginSuccess = () => {
+    // Navigate to appropriate dashboard based on user role
+    navigate("/student/home"); // This will be updated based on actual user role
+  };
+
   return (
     <div className="min-h-screen bg-secondary/20 p-4">
       <div className="max-w-md mx-auto">
@@ -70,9 +81,54 @@ const AuthSelect = () => {
           </div>
         </div>
 
-        <Card className="shadow-medium">
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+          <TabsList className="grid w-full grid-cols-2">
+            <TabsTrigger value="login" className="flex items-center gap-2">
+              <LogIn className="w-4 h-4" />
+              Sign In
+            </TabsTrigger>
+            <TabsTrigger value="register" className="flex items-center gap-2">
+              <UserPlus className="w-4 h-4" />
+              Sign Up
+            </TabsTrigger>
+          </TabsList>
+          
+          <TabsContent value="login" className="mt-6">
+            <LoginForm onSuccess={handleLoginSuccess} />
+          </TabsContent>
+          
+          <TabsContent value="register" className="mt-6">
+            <Card className="shadow-medium">
+              <CardHeader>
+                <CardTitle className="text-center">Create Account</CardTitle>
+                <p className="text-sm text-muted-foreground text-center">
+                  Join the NEP-compliant internship platform
+                </p>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="text-center">
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Registration is currently in development. Please use the demo accounts to explore the platform.
+                  </p>
+                  <Button 
+                    variant="outline" 
+                    onClick={() => setActiveTab("login")}
+                    className="w-full"
+                  >
+                    Go to Sign In
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </TabsContent>
+        </Tabs>
+
+        <Separator className="my-6" />
+
+        {/* Alternative Auth Methods */}
+        <Card className="shadow-soft">
           <CardHeader>
-            <CardTitle className="text-center">Sign In</CardTitle>
+            <CardTitle className="text-center text-lg">Alternative Sign In</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
             {/* Google Sign In */}
@@ -104,22 +160,6 @@ const AuthSelect = () => {
               <Phone className="w-5 h-5" />
               Use Phone Number
             </Button>
-
-            <Separator />
-
-            {/* College Email Info */}
-            <div className="bg-accent/10 p-3 rounded-lg">
-              <div className="flex gap-2">
-                <AlertCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                <div className="text-sm">
-                  <p className="font-medium text-accent">Why college email?</p>
-                  <p className="text-muted-foreground">
-                    We verify your academic affiliation to ensure NEP compliance 
-                    and connect you with the right opportunities.
-                  </p>
-                </div>
-              </div>
-            </div>
 
             <Separator />
 

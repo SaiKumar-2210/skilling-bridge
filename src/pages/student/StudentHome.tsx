@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
+import { useAuth } from "@/contexts/AuthContext";
 import { 
   Search, 
   Plus, 
@@ -15,11 +16,13 @@ import {
   Star,
   Filter,
   Bell,
-  User
+  User,
+  LogOut
 } from "lucide-react";
 
 const StudentHome = () => {
   const navigate = useNavigate();
+  const { user, logout } = useAuth();
   const [searchQuery, setSearchQuery] = useState("");
 
   // Mock data - in production this would come from Supabase
@@ -78,7 +81,9 @@ const StudentHome = () => {
               <BookOpen className="w-5 h-5 text-white" />
             </div>
             <div>
-              <h1 className="font-bold text-lg">Good morning!</h1>
+              <h1 className="font-bold text-lg">
+                Good morning, {user?.profile.firstName || 'Student'}!
+              </h1>
               <p className="text-sm text-muted-foreground">Find your next opportunity</p>
             </div>
           </div>
@@ -88,6 +93,9 @@ const StudentHome = () => {
             </Button>
             <Button variant="ghost" size="icon" onClick={() => navigate("/student/profile")}>
               <User className="w-5 h-5" />
+            </Button>
+            <Button variant="ghost" size="icon" onClick={logout} title="Logout">
+              <LogOut className="w-5 h-5" />
             </Button>
           </div>
         </div>

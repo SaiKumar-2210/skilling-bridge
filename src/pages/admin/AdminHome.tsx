@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
+import { useAuth } from "@/contexts/AuthContext";
 import { 
   Shield, 
   Users, 
@@ -18,11 +19,13 @@ import {
   Bell,
   User,
   Settings,
-  BarChart3
+  BarChart3,
+  LogOut
 } from "lucide-react";
 
 const AdminHome = () => {
   const navigate = useNavigate();
+  const { user, logout } = useAuth();
   const [searchQuery, setSearchQuery] = useState("");
 
   // Mock data - in production this would come from Supabase
@@ -99,7 +102,9 @@ const AdminHome = () => {
               <Shield className="w-5 h-5 text-white" />
             </div>
             <div>
-              <h1 className="font-bold text-lg">Admin Dashboard</h1>
+              <h1 className="font-bold text-lg">
+                Welcome, {user?.profile.firstName || 'Admin'}!
+              </h1>
               <p className="text-sm text-muted-foreground">Platform management & compliance</p>
             </div>
           </div>
@@ -109,6 +114,9 @@ const AdminHome = () => {
             </Button>
             <Button variant="ghost" size="icon" onClick={() => navigate("/admin/profile")}>
               <User className="w-5 h-5" />
+            </Button>
+            <Button variant="ghost" size="icon" onClick={logout} title="Logout">
+              <LogOut className="w-5 h-5" />
             </Button>
           </div>
         </div>
