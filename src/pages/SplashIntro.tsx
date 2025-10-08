@@ -197,7 +197,7 @@ const SplashIntro = () => {
             <Button 
               variant="outline"
               onClick={() => navigate("/auth")}
-              className="w-full border-2 border-white text-white hover:bg-white hover:text-primary btn-smooth relative overflow-hidden group"
+              className="w-full border-2 border-white text-primary hover:bg-white hover:text-primary btn-smooth relative overflow-hidden group"
             >
               <motion.div
                 className="absolute inset-0 bg-white/10"
